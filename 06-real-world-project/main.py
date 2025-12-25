@@ -1,18 +1,16 @@
 import asyncio
 
-from apify import Actor
 from crawlee.crawlers import PlaywrightCrawler
 
 from .routes import router
 
 async def main() -> None:
-    async with Actor:
-        crawler = PlaywrightCrawler(
-            # Let's limit our crawls to make our tests shorter and safer.
-            max_requests_per_crawl=100,
-            # Provide our router instance to the crawler.
-            request_handler=router,
-        )
+    crawler = PlaywrightCrawler(
+        # Let's limit our crawls to make our tests shorter and safer.
+        max_requests_per_crawl=100,
+        # Provide our router instance to the crawler.
+        request_handler=router,
+    )
 
-        await crawler.run(['https://warehouse-theme-metal.myshopify.com/collections'])
+    await crawler.run(['https://warehouse-theme-metal.myshopify.com/collections'])
 
