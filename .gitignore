@@ -42,3 +42,8 @@ apify_storage/
 
 # Project specific
 # (Add any specific files here)
+
+# Added by Apify CLI
+storage
+node_modules
+.venv
